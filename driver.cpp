@@ -1,8 +1,8 @@
-/**
- * @ Author: Austin Finch & Nikola Tunguz
- * @ Due Date: March 12, 2023
- * @ Description: A bank line simulation that takes input from a text file and is ordered in a priority queue.
- */
+/*
+Author: Nikola Tunguz & <REDACTED>
+Purpose: A bank line simulation that takes input from a text file and is ordered in a priority queue.
+*/
+
 #include <iostream>
 #include <fstream>
 
@@ -10,7 +10,7 @@
 #include "Event.h"
 using namespace std;
 
-
+//forward declarations
 void outputStatistics(float totalWaitTime, float numCustomers); 
 bool readEvent(PriorityArrayQueue<Event>& queue);
 bool addEvent(int arrivalTime, int departureTime, PriorityArrayQueue<Event>& queue); 
@@ -21,24 +21,19 @@ int main(int argc, char const *argv[])
     ifstream file;
     PriorityArrayQueue<Event> bankLine = PriorityArrayQueue<Event>();
 
-
-    if (!argv[1])
-    {
+    //checks if program was run correctly
+    if (argc != 2){
         cout << "Please provide a input file as a command line argument" << endl;
         return 0;
     }
-    else
-    {
-        try
-        {
+    else{
+        try{
             file.open(argv[1]);
         }
-        catch(const exception& e)
-        {
+        catch(const exception& e){
             cout << "Please provide a valid input file" << endl;
             return 0;
         }
-        
     }
 
     //reads from file and adds to priority queue
@@ -76,7 +71,7 @@ int main(int argc, char const *argv[])
     outputStatistics(totalWaitTime,numCustomers);
 }
 
-
+//processes banking events (arrivals and departures)
 bool readEvent(PriorityArrayQueue<Event>& queue){
     if( queue.isEmpty() ) return false;
 
@@ -93,12 +88,14 @@ bool readEvent(PriorityArrayQueue<Event>& queue){
     return true;
 }
 
+//print statements 
 void outputStatistics(float totalWaitTime, float numCustomers){
     cout << "Final Statistics:" << endl
          << "Total number of people processed: " << (int) (numCustomers) << endl
          << "Average amount of time spent waiting: " << totalWaitTime/numCustomers << endl;
 }
 
+//adds an event, either arrival or departure to the queue
 bool addEvent(int arrivalTime, int departureTime, PriorityArrayQueue<Event>& queue){
     Event arrive('A', arrivalTime);
     Event depart('D', departureTime);

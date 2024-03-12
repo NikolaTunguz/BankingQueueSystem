@@ -1,3 +1,9 @@
+/*
+Author: Nikola Tunguz & <REDACTED>
+Purpose: Templated circular array based queue implementations.
+*/
+
+//constructor
 template<class ItemType> 
 ArrayQueue<ItemType>::ArrayQueue()
 {
@@ -8,13 +14,14 @@ ArrayQueue<ItemType>::ArrayQueue()
 }
 
 
+//checks if queue is empty
 template<class ItemType> 
 bool ArrayQueue<ItemType>::isEmpty() const
 {
 	return (size == 0);
 }
 
- 
+//adds items to the queue
 template<class ItemType> 
 bool ArrayQueue<ItemType>::enqueue(const ItemType& newEntry)
 {
@@ -37,7 +44,7 @@ bool ArrayQueue<ItemType>::enqueue(const ItemType& newEntry)
     return true;
 }
 
- 
+//removes items from the queue
 template<class ItemType> 
 bool ArrayQueue<ItemType>::dequeue()
 {
@@ -59,13 +66,14 @@ bool ArrayQueue<ItemType>::dequeue()
     return true;
 }
 
+//looks at an item from the front of the queue
 template<class ItemType> 
 ItemType ArrayQueue<ItemType>::peekFront() const
 {
 	return queue[front];
 }
 
-
+//destructor
 template<class ItemType> 
 ArrayQueue<ItemType>::~ArrayQueue()
 {

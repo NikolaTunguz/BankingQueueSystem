@@ -1,8 +1,7 @@
-/**
- * @ Author: Austin Finch & Nikola Tunguz
- * @ Due Date: March 12, 2023
- * @ Description: Queue abstract data type interface.
- */
+/*
+Author: Nikola Tunguz & <REDACTED>
+Purpose: Queue abstract data type interface.
+*/
 #ifndef QUEUE_INTERFACE 
 #define QUEUE_INTERFACE 
 

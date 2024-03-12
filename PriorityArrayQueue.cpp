@@ -1,3 +1,9 @@
+/*
+Author: Nikola Tunguz & <REDACTED>
+Purpose: Templated priority array based queue.
+*/
+
+//constructor
 template <class ItemType>
 PriorityArrayQueue<ItemType>::PriorityArrayQueue(){
     queue = new ItemType[100];
@@ -6,6 +12,7 @@ PriorityArrayQueue<ItemType>::PriorityArrayQueue(){
     size = 0;
 }
 
+//destructor
 template <class ItemType>
 PriorityArrayQueue<ItemType>::~PriorityArrayQueue(){
     while( size != 0){
@@ -13,6 +20,7 @@ PriorityArrayQueue<ItemType>::~PriorityArrayQueue(){
     }
 }
 
+//adding elements to the queue
 template<class ItemType> 
 bool PriorityArrayQueue<ItemType>::enqueue(const ItemType& newEntry)
 {
@@ -65,6 +73,7 @@ bool PriorityArrayQueue<ItemType>::enqueue(const ItemType& newEntry)
     return false;
 }
 
+//removing elements
 template <class ItemType>
 bool PriorityArrayQueue<ItemType>::dequeue(){
     bool dequeueable = size > 0;
@@ -77,11 +86,13 @@ bool PriorityArrayQueue<ItemType>::dequeue(){
     return false;
 }
 
+//checks if empty
 template <class ItemType>
 bool PriorityArrayQueue<ItemType>::isEmpty() const{
     return (size == 0);
 }
 
+//gets item at front of queue
 template <class ItemType>
 ItemType PriorityArrayQueue<ItemType>::peekFront() const{
     return queue[front];

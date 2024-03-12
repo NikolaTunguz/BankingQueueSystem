@@ -1,8 +1,7 @@
-/**
- * @ Author: Austin Finch & Nikola Tunguz
- * @ Due Date: March 12, 2023
- * @ Description: A circular array based priority queue that stores items in a queue by order of priority.
- */
+/*
+Author: Nikola Tunguz & <REDACTED>
+Purpose: Templated priority array based queue.
+*/
 #ifndef PRIORTIY_ARRAY_QUEUE
 #define PRIORITY_ARRAY_QUEUE 
 
@@ -14,13 +13,15 @@ class PriorityArrayQueue : public ArrayQueue<ItemType> {
     int front, back, size;
 
     public: 
+        //constructor and destructor
         PriorityArrayQueue();
+        ~PriorityArrayQueue();
 
+        //basic queue functionality
         bool isEmpty() const; 
         bool enqueue(const ItemType& newEntry); 
         bool dequeue();                        
         ItemType peekFront() const; 
-        ~PriorityArrayQueue();
 };
 
 #include "PriorityArrayQueue.cpp"
